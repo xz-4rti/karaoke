@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Karaoke Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #c4a1ff 0%, #a072e0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #ffc6ff;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 150px;
+        }
+
+        .logo-container {
+            position: absolute;
+            left: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .control-btn {
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .welcome-text {
+            font-size: 48px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav {
+            background-color: #f8f7ff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .nav-link {
+            color: #d896ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 20px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #b64fc8;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #b64fc8;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #b64fc8;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .get-started-btn {
+            background-color: #ffc6ff;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 40px;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #ffb3ff;
+        }
+
+        .get-started-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #f8f7ff;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title {
+            color: #e78dff;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #e78dff;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .toggle-option {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .toggle-option.active {
+            color: #e78dff;
+            font-weight: 600;
+        }
+
+        .toggle-switch {
+            width: 60px;
+            height: 30px;
+            background-color: #e78dff;
+            border-radius: 15px;
+            margin: 0 15px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.yearly::after {
+            transform: translateX(30px);
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-plan {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan-popular {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background-color: #e78dff;
+            color: #fff;
+            padding: 5px 40px;
+            font-size: 14px;
+            transform: rotate(45deg);
+        }
+
+        .plan-name {
+            color: #e78dff;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .plan-price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #999;
+        }
+
+        .plan-billing {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e78dff;
+            font-weight: bold;
+        }
+
+        .plan-button {
+            display: inline-block;
+            background-color: #e78dff;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-button.outline {
+            background-color: transparent;
+            color: #e78dff;
+            border: 2px solid #e78dff;
+        }
+
+        .faq-section {
+            margin-top: 80px;
+        }
+
+        .faq-title {
+            color: #e78dff;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: #e78dff;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-plan {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                position: static;
+                margin-bottom: 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SvsrMpHVeQU25HYFfzbLM6IU2OXVTY.png"
+                alt="Dog with headphones" class="logo">
+            <div class="player-controls">
+                <div class="control-btn">⏮</div>
+                <div class="control-btn">⏯</div>
+                <div class="control-btn">⏭</div>
+            </div>
+        </div>
+        <h1 class="welcome-text">WELCOME TO KARAOKE</h1>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="about-us.html" class="nav-link">About us</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link active">Pricing</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <a href="index.html" class="get-started-btn">Get Started</a>
+    </nav>
+
+    <main class="content">
+        <h1 class="page-title">Pricing Plans</h1>
+        <p class="pricing-intro">Choose the perfect plan for your karaoke needs. All plans include our core features
+            with different levels of access and capabilities. Switch between monthly and yearly billing to save!</p>
+
+        <div class="pricing-toggle">
+            <div class="toggle-option active">Monthly</div>
+            <div class="toggle-switch"></div>
+            <div class="toggle-option">Yearly</div>
+        </div>
+
+        <div class="pricing-plans">
+            <div class="pricing-plan">
+                <div class="plan-name">Basic</div>
+                <div class="plan-price">$0<span>/mo</span></div>
+                <div class="plan-billing">Free forever</div>
+                <ul class="plan-features">
+                    <li>Join unlimited public rooms</li>
+                    <li>Basic voice quality (128kbps)</li>
+                    <li>YouTube integration</li>
+                    <li>Text chat</li>
+                    <li>Up to 5 participants per room</li>
+                </ul>
+                <a href="#" class="plan-button outline">Get Started</a>
+            </div>
+
+            <div class="pricing-plan">
+                <div class="plan-popular">Most Popular</div>
+                <div class="plan-name">Premium</div>
+                <div class="plan-price">$9.99<span>/mo</span></div>
+                <div class="plan-billing">Billed monthly</div>
+                <ul class="plan-features">
+                    <li>Create private rooms</li>
+                    <li>High-quality audio (256kbps)</li>
+                    <li>No advertisements</li>
+                    <li>Voice effects and filters</li>
+                    <li>Up to 20 participants per room</li>
+                    <li>Room customization options</li>
+                </ul>
+                <a href="#" class="plan-button">Choose Premium</a>
+            </div>
+
+            <div class="pricing-plan">
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">$19.99<span>/mo</span></div>
+                <div class="plan-billing">Billed monthly</div>
+                <ul class="plan-features">
+                    <li>All Premium features</li>
+                    <li>Studio-quality audio (320kbps)</li>
+                    <li>Advanced voice enhancement</li>
+                    <li>Recording capabilities</li>
+                    <li>Up to 50 participants per room</li>
+                    <li>Priority support</li>
+                    <li>Custom branding options</li>
+                </ul>
+                <a href="#" class="plan-button">Choose Pro</a>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item active">
+                <div class="faq-question">What payment methods do you accept?</div>
+                <div class="faq-answer">We accept all major credit cards (Visa, Mastercard, American Express), PayPal,
+                    and Apple Pay. For yearly subscriptions, we also offer payment via bank transfer.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I switch between plans?</div>
+                <div class="faq-answer">Yes, you can upgrade or downgrade your plan at any time. If you upgrade, the new
+                    features will be available immediately. If you downgrade, the changes will take effect at the end of
+                    your current billing cycle.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is there a free trial for paid plans?</div>
+                <div class="faq-answer">Yes, we offer a 7-day free trial for both our Premium and Pro plans. No credit
+                    card is required to start your trial, and you can downgrade to the Basic plan before the trial ends
+                    if you don't wish to continue.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I cancel my subscription?</div>
+                <div class="faq-answer">You can cancel your subscription at any time from your account settings. After
+                    cancellation, you'll still have access to your paid features until the end of your current billing
+                    period.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer discounts for teams or groups?</div>
+                <div class="faq-answer">Yes, we offer special pricing for groups of 10 or more users. Please contact our
+                    sales team through the Contact page for more information about our group rates.</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Toggle between monthly and yearly pricing
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        const toggleOptions = document.querySelectorAll('.toggle-option');
+        const planPrices = document.querySelectorAll('.plan-price');
+        const planBillings = document.querySelectorAll('.plan-billing');
+
+        const monthlyPrices = ['$0', '$9.99', '$19.99'];
+        const yearlyPrices = ['$0', '$7.99', '$15.99'];
+        const monthlyBillings = ['Free forever', 'Billed monthly', 'Billed monthly'];
+        const yearlyBillings = ['Free forever', 'Billed annually (save 20%)', 'Billed annually (save 20%)'];
+
+        toggleSwitch.addEventListener('click', () => {
+            toggleSwitch.classList.toggle('yearly');
+            toggleOptions[0].classList.toggle('active');
+            toggleOptions[1].classList.toggle('active');
+
+            const isYearly = toggleSwitch.classList.contains('yearly');
+
+            planPrices.forEach((price, index) => {
+                const priceValue = isYearly ? yearlyPrices[index] : monthlyPrices[index];
+                const span = price.querySelector('span');
+                const spanText = isYearly ? '/yr' : '/mo';
+
+                price.innerHTML = `${priceValue}<span>${spanText}</span>`;
+            });
+
+            planBillings.forEach((billing, index) => {
+                billing.textContent = isYearly ? yearlyBillings[index] : monthlyBillings[index];
+            });
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
