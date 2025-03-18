@@ -150,204 +150,239 @@ body {
 }
 
 .content {
-    display: flex;
-    padding: 50px;
-    gap: 50px;
-    max-width: 1800px;
-    margin: 0 auto;
-}
-
-.features-card {
-    background-color: #fff;
-    border-radius: 25px;
-    padding: 35px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: fit-content;
-}
-
-.features-title {
-    color: #000;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 30px;
-}
-
-.feature-item {
-    background-color: #000;
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.feature-item.alt {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.feature-details {
-    position: absolute;
-    top: -20px;
-    left: 105%;
-    width: 300px;
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.feature-item:hover .feature-details {
-    opacity: 1;
-    visibility: visible;
-    left: 100%;
-}
-
-.feature-details h4 {
-    color: #000;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.feature-details p {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.feature-icon {
-    margin-left: auto;
-    font-size: 20px;
-}
-
-.rooms-card {
-    background-color: #fff;
-    border-radius: 25px;
+    max-width: 1200px;
+    margin: 50px auto;
     padding: 40px;
+    background-color: #fff;
+    border-radius: 25px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    flex: 1;
 }
 
-.rooms-title {
+.page-title {
     color: #000;
     text-align: center;
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    font-size: 36px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-.rooms-description {
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #000;
+}
+
+.pricing-intro {
     text-align: center;
     color: #666;
-    margin-bottom: 40px;
-    line-height: 1.6;
     font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 50px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.room-options {
+.pricing-toggle {
     display: flex;
-    justify-content: space-around;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-.room-option {
-    background-color: #000;
-    border-radius: 25px;
-    padding: 30px;
-    width: 45%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.room-option:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.option-title {
-    color: #fff;
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-.room-input {
-    width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+.toggle-option {
+    padding: 10px 20px;
+    font-size: 18px;
     color: #666;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.room-input:focus {
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-    outline: none;
+.toggle-option.active {
+    color: #000;
+    font-weight: 600;
 }
 
-.room-input::placeholder {
-    color: #aaa;
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 15px;
+    margin: 0 15px;
+    position: relative;
+    cursor: pointer;
 }
 
-.submit-btn {
-    width: 50px;
-    height: 50px;
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
     background-color: #fff;
     border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+}
+
+.toggle-switch.yearly::after {
+    transform: translateX(30px);
+}
+
+.pricing-plans {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    font-size: 20px;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
-.submit-btn:hover {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f8f8f8;
+.pricing-plan {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.submit-btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.pricing-plan:hover {
+    transform: translateY(-10px);
 }
 
-.music-note {
-    font-size: 30px;
+.plan-popular {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 40px;
+    font-size: 14px;
+    transform: rotate(45deg);
+}
+
+.plan-name {
     color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.plan-price {
+    font-size: 48px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.plan-price span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #999;
+}
+
+.plan-billing {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.plan-features {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.plan-features li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    color: #666;
+}
+
+.plan-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.plan-button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.plan-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.plan-button.outline {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.faq-section {
+    margin-top: 80px;
+}
+
+.faq-title {
+    color: #000;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 24px;
+    color: #000;
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+    display: none;
+}
+
+.faq-item.active .faq-question::after {
+    content: '-';
+}
+
+.faq-item.active .faq-answer {
+    display: block;
 }
 
 /* Footer */
@@ -395,49 +430,20 @@ body {
     color: #ccc;
 }
 
-@media (max-width: 1600px) {
-    .content {
-        padding: 40px;
-        gap: 40px;
+@media (max-width: 992px) {
+    .pricing-plans {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .features-card {
-        width: 350px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .content {
-        padding: 30px;
-        gap: 30px;
-    }
-
-    .features-card {
-        width: 300px;
-    }
-
-    .room-options {
-        gap: 20px;
+    .pricing-plan {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .features-card {
-        width: 100%;
-    }
-
-    .room-options {
-        flex-direction: column;
-    }
-
-    .room-option {
-        width: 100%;
-    }
-
     .logo-container {
         position: static;
         margin-bottom: 15px;
@@ -446,16 +452,6 @@ body {
     .header {
         flex-direction: column;
         height: auto;
-    }
-
-    .feature-details {
-        left: 0;
-        top: 100%;
-        width: 100%;
-    }
-
-    .feature-item:hover .feature-details {
-        left: 0;
     }
 
     .footer-content {

@@ -1,312 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Karaoke Website</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #c4a1ff 0%, #a072e0 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-
-        .header {
-            background-color: #ffc6ff;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            height: 150px;
-        }
-
-        .logo-container {
-            position: absolute;
-            left: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .player-controls {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .control-btn {
-            width: 25px;
-            height: 25px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 12px;
-            transition: all 0.2s ease;
-        }
-
-        .control-btn:hover {
-            transform: scale(1.1);
-            background-color: #f0f0f0;
-        }
-
-        .control-btn:active {
-            transform: scale(0.95);
-        }
-
-        .welcome-text {
-            font-size: 48px;
-            color: #fff;
-            text-align: center;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav {
-            background-color: #f8f7ff;
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 60px;
-        }
-
-        .nav-link {
-            color: #d896ff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 20px;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: #b64fc8;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #b64fc8;
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link.active {
-            color: #b64fc8;
-        }
-
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .get-started-btn {
-            background-color: #ffc6ff;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-left: 40px;
-            transition: all 0.3s;
-            font-size: 18px;
-        }
-
-        .get-started-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background-color: #ffb3ff;
-        }
-
-        .get-started-btn:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 40px;
-            background-color: #f8f7ff;
-            border-radius: 25px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .page-title {
-            color: #e78dff;
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: #e78dff;
-        }
-
-        .about-section {
-            margin-bottom: 50px;
-        }
-
-        .about-section h2 {
-            color: #d896ff;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .about-section p {
-            color: #666;
-            line-height: 1.8;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .team-member {
-            background-color: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-
-        .member-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .member-info {
-            padding: 20px;
-        }
-
-        .member-name {
-            color: #e78dff;
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .member-role {
-            color: #999;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .member-bio {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 50px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-            margin: 20px;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #e78dff;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: #666;
-        }
-
-        @media (max-width: 1200px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .logo-container {
-                position: static;
-                margin-bottom: 15px;
-            }
-            
-            .header {
-                flex-direction: column;
-                height: auto;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/about-us.css">
 </head>
+
 <body>
     <header class="header">
         <div class="logo-container">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SvsrMpHVeQU25HYFfzbLM6IU2OXVTY.png" alt="Dog with headphones" class="logo">
+            <img src="/imagen/cat.png" alt="cat with headphones" class="logo">
+                alt="Dog with headphones" class="logo">
             <div class="player-controls">
                 <div class="control-btn">⏮</div>
                 <div class="control-btn">⏯</div>
@@ -315,7 +22,7 @@
         </div>
         <h1 class="welcome-text">WELCOME TO KARAOKE</h1>
     </header>
-    
+
     <nav class="nav">
         <div class="nav-links">
             <a href="about-us.html" class="nav-link active">About us</a>
@@ -325,22 +32,30 @@
         </div>
         <a href="index.html" class="get-started-btn">Get Started</a>
     </nav>
-    
+
     <main class="content">
         <h1 class="page-title">About Us</h1>
-        
+
         <section class="about-section">
             <h2>Our Story</h2>
-            <p>Founded in 2020, Karaoke Online was born out of a passion for music and a desire to connect people through the joy of singing. During the global pandemic, when physical gatherings were limited, our founders recognized the need for a virtual space where friends could come together and enjoy karaoke sessions regardless of their location.</p>
-            <p>What started as a small project among friends quickly grew into a global platform, connecting karaoke enthusiasts from all corners of the world. Today, we're proud to host thousands of virtual karaoke rooms daily, bringing people together through the universal language of music.</p>
+            <p>Founded in 2020, Karaoke Online was born out of a passion for music and a desire to connect people
+                through the joy of singing. During the global pandemic, when physical gatherings were limited, our
+                founders recognized the need for a virtual space where friends could come together and enjoy karaoke
+                sessions regardless of their location.</p>
+            <p>What started as a small project among friends quickly grew into a global platform, connecting karaoke
+                enthusiasts from all corners of the world. Today, we're proud to host thousands of virtual karaoke rooms
+                daily, bringing people together through the universal language of music.</p>
         </section>
-        
+
         <section class="about-section">
             <h2>Our Mission</h2>
-            <p>At Karaoke Online, our mission is to create the most accessible, enjoyable, and high-quality virtual karaoke experience available. We believe that music has the power to unite people, transcend barriers, and create lasting memories.</p>
-            <p>We're committed to continuous innovation, ensuring our platform remains at the cutting edge of technology while maintaining an intuitive, user-friendly interface that welcomes singers of all skill levels.</p>
+            <p>At Karaoke Online, our mission is to create the most accessible, enjoyable, and high-quality virtual
+                karaoke experience available. We believe that music has the power to unite people, transcend barriers,
+                and create lasting memories.</p>
+            <p>We're committed to continuous innovation, ensuring our platform remains at the cutting edge of technology
+                while maintaining an intuitive, user-friendly interface that welcomes singers of all skill levels.</p>
         </section>
-        
+
         <div class="stats-container">
             <div class="stat-item">
                 <div class="stat-number">500K+</div>
@@ -355,38 +70,49 @@
                 <div class="stat-label">Countries</div>
             </div>
         </div>
-        
+
         <section class="about-section">
             <h2>Meet Our Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="/placeholder.svg?height=250&width=400" alt="CEO" class="member-img">
+                    <img src="/imagen/arti.jpg" alt="CEO" class="member-img">
                     <div class="member-info">
-                        <h3 class="member-name">Sarah Johnson</h3>
-                        <div class="member-role">CEO & Co-Founder</div>
-                        <p class="member-bio">With a background in music production and software development, Sarah leads our company with passion and innovation, ensuring we deliver the best karaoke experience possible.</p>
+                        <h3 class="member-name">Aarati Didi</h3>
+                        <div class="member-role">Designer</div>
+                        <p class="member-bio">With a background in music production and software development, Sarah
+                            leads our company with passion and innovation, ensuring we deliver the best karaoke
+                            experience possible.</p>
                     </div>
                 </div>
-                
+
                 <div class="team-member">
-                    <img src="/placeholder.svg?height=250&width=400" alt="CTO" class="member-img">
+                    <img src="/imagen/mission.jpg" alt="CTO" class="member-img">
                     <div class="member-info">
-                        <h3 class="member-name">David Chen</h3>
-                        <div class="member-role">CTO & Co-Founder</div>
-                        <p class="member-bio">David's expertise in audio engineering and real-time communication technologies has been instrumental in creating our low-latency, high-quality voice chat system.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Design Director" class="member-img">
-                    <div class="member-info">
-                        <h3 class="member-name">Maya Rodriguez</h3>
-                        <div class="member-role">Design Director</div>
-                        <p class="member-bio">Maya brings her creative vision to every aspect of our platform, ensuring a delightful and intuitive user experience that makes karaoke accessible to everyone.</p>
+                        <h3 class="member-name">Misson the monkey vai</h3>
+                        <div class="member-role">Backend</div>
+                        <p class="member-bio">Monkey's expertise in audio engineering and real-time communication
+                            technologies has been instrumental in creating our low-latency, high-quality voice chat
+                            system.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">KARAOKE</div>
+            <div class="footer-links">
+                <a href="about-us.html" class="footer-link">About Us</a>
+                <a href="features.html" class="footer-link">Features</a>
+                <a href="pricing.html" class="footer-link">Pricing</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023 Karaoke. All rights reserved.
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
